@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors/IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Logs & coverage
+logs/
+*.log
+coverage/
+htmlcov/
+.coverage*
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environment / secrets
+.env
+.env.*
+*.env
+
+# FAISS index (generated)
+data/faiss_index/*
+!data/faiss_index/.gitkeep
+
+# LangChain caches (if you enable them)
+.lc_cache/
+.cache/
+
+# Jupyter/Colab
+.ipynb_checkpoints/
+
+# Local data dumps/backups
+*.sqlite3
+*.db
+
+# Node (if a frontend lives in this repo later)
+node_modules/
+
+# NOTE: Do NOT ignore docs/*.md — they are your RAG source files.
+# If you keep the original PDFs, you can choose to track them or ignore heavy files like:
+# docs/*.pdf
