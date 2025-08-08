@@ -3,6 +3,7 @@ import uuid
 from typing import List
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from .config import DOCS_DIR, INDEX_DIR
 from .vectorstore import load_or_build_index, build_faiss_from_docs
@@ -24,6 +25,19 @@ def _ensure_index():
 
 def create_app() -> FastAPI:
     app = FastAPI(title="Sri Lanka Legal LLM — RAG (Gemini + FAISS)")
+
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[
+            "http://localhost:5173",
+            "http://127.0.0.1:5173",
+            "http://localhost:3000",
+            "http://127.0.0.1:3000",
+        ],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
     @app.post("/ingest", response_model=IngestResponse)
     def ingest():
